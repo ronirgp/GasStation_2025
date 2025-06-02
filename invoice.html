@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        @media print {
+            buttom {display:none;}
+        }
+            
+    </style>
+    <title>Invoice</title>
+</head>
+<script>
+    function printInvoice() {
+        window.print();
+    }</script>
+<body>
+    <h2>Fuel Sale Invoice</h2>
+    <p>Date: {{ date }}</p>
+    <p>Time: {{ time }}</p>
+    <p>Pump #: {{ pump }}</p>
+    <p>Liters: {{ liters }}</p>
+    <p>Price per Liter: ${{ price_per_liter }}</p>
+    <p><strong>Total: ${{ total }}</strong></p>
+    <buttom onclick="window.print()">Print Invoice</buttom>
+    <p>Attendant: {{ attendant }}</p>
+    <br>
+    <a href="/">Back</a>
+</body>
+</html>

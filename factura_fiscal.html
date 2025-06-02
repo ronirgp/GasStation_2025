@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+    <meta charset="UTF-8">
+    <title>{% if lang == 'es' %}Factura Fiscal{% else %}Tax Invoice{% endif %}</title>
+</head>
+<body>
+    <h2>{% if lang == 'es' %}Factura Fiscal{% else %}Tax Invoice{% endif %}</h2>
+    <p><strong>{% if lang == 'es' %}Número de Bomba:{% else %}Pump Number:{% endif %}</strong> {{ pump }}</p>
+    <p><strong>{% if lang == 'es' %}Litros:{% else %}Liters:{% endif %}</strong> {{ liters }}</p>
+    <p><strong>{% if lang == 'es' %}Precio por Litro:{% else %}Price per Liter:{% endif %}</strong> ${{ price_per_liter }}</p>
+    <p><strong>{% if lang == 'es' %}Total:{% else %}Total:{% endif %}</strong> ${{ total }}</p>
+    <p><strong>{% if lang == 'es' %}Fecha:{% else %}Date:{% endif %}</strong> {{ date }}</p>
+    <p><strong>{% if lang == 'es' %}Hora:{% else %}Time:{% endif %}</strong> {{ time }}</p>
+    <p><strong>{% if lang == 'es' %}Nombre del Atendedor:{% else %}Attendant Name:{% endif %}</strong> {{ attendant }}</p>
+</body>
+</html>

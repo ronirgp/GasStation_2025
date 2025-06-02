@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+    <meta charset="UTF-8">
+    <title>{% if lang == 'es' %}Gasolinera Factura{% else %}Gas Station Invoice{% endif %}</title>
+</head>
+<body>
+    <h2>{% if lang == 'es' %}Detalles de Venta{% else %}Sales Details{% endif %}</h2>
+    <form method="POST" action="/generate_invoice">
+        <p><strong>{% if lang == 'es' %}Número de Bomba:{% else %}Pump Number:{% endif %}</strong>
+            <input type="text" name="pump" required></p>
+        <p><strong>{% if lang == 'es' %}Monto ($):{% else %}Amount ($):{% endif %}</strong>
+            <input type="number" step="0.01" name="amount" required></p>
+        <p><strong>{% if lang == 'es' %}Precio por Litro ($):{% else %}Price per Liter ($):{% endif %}</strong>
+            <input type="number" step="0.01" name="price_per_liter" required></p>
+        <p><strong>{% if lang == 'es' %}Nombre del Atendedor:{% else %}Attendant Name:{% endif %}</strong>
+            <input type="text" name="attendant" required></p>
+        <p><strong>{% if lang == 'es' %}Tipo de Factura:{% else %}Invoice Type:{% endif %}</strong>
+            <select name="factura_type">
+                <option value="fiscal">{% if lang == 'es' %}Fiscal{% else %}Tax Invoice{% endif %}</option>
+                <option value="comercial">{% if lang == 'es' %}Comercial{% else %}Commercial Invoice{% endif %}</option>
+            </select></p>
+        <input type="hidden" name="lang" value="{{ lang }}">
+        <button type="submit">{% if lang == 'es' %}Generar Factura{% else %}Generate Invoice{% endif %}</button>
+    </form>
+    <br>
+    <a href="/sales_history">{% if lang == 'es' %}Historial de Ventas{% else %}Sales History{% endif %}</a>
+    <br>
+    <a href="/reset">{% if lang == 'es' %}Reiniciar Ventas{% else %}Reset Sales{% endif %}</a>
+</body>
+</html>
